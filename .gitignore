@@ -1,6 +1,10 @@
 custom.el
 history
 old
+.last-package-update-day
+*.bk
+projectile*
+transient
 *~
 \#*\#
 *.bak
