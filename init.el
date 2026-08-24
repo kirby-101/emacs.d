@@ -2,7 +2,11 @@
 ;;; ~/.emacs.d/init.el kirby@bsdlab
 ;; Signal: (@kirby.41)
 
-(add-to-list 'load-path user-emacs-directory)
+;; load .emacs.d: normal / symlink
+;; (add-to-list 'load-path user-emacs-directory)
+(add-to-list 'load-path
+             (expand-file-name "~/Workspace/emacs.d" user-emacs-directory)
+             )
 
 (require 'bsdlab-keymap)
 (require 'bsdlab-modes)
