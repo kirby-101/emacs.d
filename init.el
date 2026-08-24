@@ -15,17 +15,14 @@
       (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'noerror)
 
-;;
-;;; ToDo
-;;
-;; 
-
 ;; faster GC for startup
 (setq gc-cons-threshold (* 64 1024 1024))
 (add-hook 'emacs-startup-hook
           (lambda () (setq gc-cons-threshold (* 16 1024 1024)))
           )
 
-;; ??
+;; last opened files history
 (recentf-mode 1)
 (setq recentf-max-saved-items 500)
+
+;;? .gitconfig
