@@ -2,6 +2,8 @@
 ;;; ~/.emacs.d/init.el kirby@bsdlab
 ;; Signal: (@kirby.41)
 
+(add-to-list 'load-path user-emacs-directory)
+
 (require 'bsdlab-keymap)
 (require 'bsdlab-modes)
 (require 'bsdlab-packages)
