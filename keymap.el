@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; ~/.emacs.d/keymaps.el kirby@bsdlab
 ;; Signal: (@kirby.41)
 

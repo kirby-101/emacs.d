@@ -1,3 +1,6 @@
+;;; -*- lexical-binding: t; -*-
+;;; ~/.emacs.d/settings.el kirby@bsdlab
+;; Signal: (@kirby.41)
 
 (set-language-environment "UTF-8")
 (prefer-coding-system 'utf-8)

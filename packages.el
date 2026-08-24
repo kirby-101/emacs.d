@@ -1,7 +1,9 @@
+;;; -*- lexical-binding: t; -*-
 ;;; ~/.emacs.d/packages.el kirby@bsdlab
 ;; Signal: (@kirby.41)
 
 (require 'package)
+
 
 ;; Package Repositories
 (setq package-archives

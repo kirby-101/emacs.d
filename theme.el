@@ -1,3 +1,6 @@
+;;; -*- lexical-binding: t; -*-
+;;; ~/.emacs.d/theme.el kirby@bsdlab
+;; Signal: (@kirby.41)
 
 ;; Transparency
 (set-face-attribute 'default nil :height 100)

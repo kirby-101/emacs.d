@@ -1,4 +1,6 @@
-
+;;; -*- lexical-binding: t; -*-
+;;; ~/.emacs.d/ui.el kirby@bsdlab
+;; Signal: (@kirby.41)
 
 (setq
  inhibit-startup-message t   ; no mot

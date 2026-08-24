@@ -1,3 +1,8 @@
+;;; -*- lexical-binding: t; -*-
+;;; ~/.emacs.d/plugins.el kirby@bsdlab
+;; Signal: (@kirby.41)
+
+
 ;; Dashboard
 (defun my/dashboard-banner ()
   "Set a dashboard banner including information on package initialization

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; ~/.emacs.d/modes.el kirby@bsdlab
 ;; Signal: (@kirby.41)
 
