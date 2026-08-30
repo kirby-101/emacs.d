@@ -182,6 +182,50 @@
 
 
 
+;; !! doom-modeline !!
+;; buffer, (BEGIN/END Zeile, index), position?,magit?: git branch, git status, eglot, docs, errors/warns
+;; gespeichert? filename ; language server ; Postition ; branch ; git status/magit ; current eglot language server; docs, src code warns,errors
+
+;; !! doom-modeline !!
+;; buffer, (BEGIN/END Zeile, index), position?,magit?: git branch, git status, eglot, docs, errors/warnings
+
+
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+
+  :config
+  (setq doom-modeline-icon nil)     ;; text only
+  ;;(setq doom-modeline-height 20)
+  ;;(setq doom-modeline-bar-width 4)
+
+  ;;!
+
+  (setq doom-modeline-buffer-name t)
+  (setq doom-modeline-highlight-modified-buffer-name t)
+  
+
+  (setq doom-modeline-minor-modes t)
+
+  (setq doom-modeline-major-mode-icon t)
+
+  (setq doom-modeline-enable-buffer-position t)
+  (setq doom-modeline-indent-info nil)
+
+  (setq doom-modeline-check 'auto)
+  (setq doom-modeline-lsp t)
+
+
+  ;;(setq doom-modeline-github nil)
+  ;;(setq doom-modeline-remote-host t)
+  (setq doom-modeline-env-version t)
+
+  )
+
+;; modified? ; buffer-name ; position ; git ; eglot/ minor mode ; docs ; error/warns
+
+
 
 
 
@@ -197,8 +241,6 @@
 
 
 
-;; !! doom-modeline !!
-;; buffer, (BEGIN/END Zeile, index), position?,magit?: git branch, git status, eglot, docs, errors/warns
 
 
 ;;; Module

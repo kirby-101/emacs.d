@@ -48,6 +48,7 @@ time and garbage collections."
 ;; Magit
 (use-package magit
   :ensure t
+  :defer t
   )
 
 ;; .editorconfig file for projects
@@ -55,6 +56,20 @@ time and garbage collections."
   :ensure t
   :config
   (editorconfig-mode 1)
+  )
+
+;; Better Comments
+(use-package hl-todo
+  :ensure t
+  :hook (prog-mode . hl-todo-mode)
+  :config
+  (setq hl-todo-keyword-faces '(
+                                ("ToDo"  . "#FFCC00")
+                                ("ToBe"  . "#FF4D00")
+                                ("!!"     . "#FF5555")
+                                ("??"     . "#61AFEF")
+                                ("*"     . "#98C379")
+                                ))
   )
 
 

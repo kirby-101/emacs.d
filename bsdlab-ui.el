@@ -12,8 +12,12 @@
  auto-revert-interval 1      ; Refresh buffers fast
  )
 
+;; save&restore emacs sessions
+;;(desktop-save-mode 0)
+;;(setq desktop-path (list user-emacs-directory))
+;;(setq desktop-dirname user-emacs-directory)
+;;(setq desktop-base-file-name "desktop")
 
-;; (desktop-save-mode)
 (scroll-bar-mode -1)   ; scrollbar
 (tool-bar-mode -1)     ; toolbar
 (menu-bar-mode -1)     ; menubar
@@ -61,11 +65,27 @@
   :hook (prog-mode . rainbow-identifiers-mode)
   )
 
+(defun bsdlab-vterm-toggle ()
+  (interactive)
+  (if-let ((window (get-buffer-window "*vterm*")))
+      (progn
+        (delete-window window)
+        (kill-buffer "*vterm*"))
+    (vterm))
+  )
 
-;; Terminal via libvterm => (C-c RETURN)
+
+;; Terminal via libvterm => M-RET
 (use-package vterm
   :ensure t
-  :bind ("M-RET" . vterm)
+  :commands vterm
+  :bind ("M-RET" . bsdlab-vterm-toggle)
+  :config
+  (add-to-list 'display-buffer-alist
+               '("\\*vterm.*\\*"
+                 (display-buffer-reuse-window
+                  display-buffer-at-bottom)
+                 (window-height . 0.3)))
   )
 
 

@@ -2,6 +2,22 @@
 ;;; ~/.emacs.d/init.el kirby@bsdlab
 ;; Signal: (@kirby.41)
 
+
+;;
+;;; Dependencies
+;;
+;;  libvterm gopls clangd clang-format rust-analyzer
+;; npm install -g vscode-json-language-server vscode-css-language-server vscode-html-language-server vscode-eslint-language-server vscode-markdown-language-server
+
+;;? (setq make-backup-files nil)
+;;
+;;; ToDo
+;;
+;; language-server: rust, elisp, html, css, javascript, bash, python3, yaml, json, Makefile
+;; Helm für eglot
+;; eldoc,flymake,xref,company
+
+
 ;; load .emacs.d: normal / symlink
 ;; (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path

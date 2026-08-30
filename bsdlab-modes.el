@@ -13,12 +13,17 @@
 (use-package eglot
   :ensure t
   :defer t
-  :hook (eglot-managed-mode . (lambda ()
-                                 ;;(eglot-inlay-hints-mode -1)
-                                 (add-hook 'before-save-hook 'eglot-format nil t)))
+  :hook ((c-mode c++-mode
+          python-mode
+          sh-mode
+          yaml-mode
+          json-mode
+          html-mode) . eglot-ensure)
   :config
+  (add-hook 'eglot-managed-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'eglot-format nil t)))
   (setq eglot-events-buffer-size 0)
-  (add-hook 'prog-mode-hook #'eglot-ensure)
   )
 
 ;; company-mode
@@ -41,12 +46,12 @@
   :ensure t
   :defer t
   :mode "\\.go\\'"
-  :hook ((go-mode . eglot-ensure)
-         ;; buffer-local, statt global in before-save-hook zu haengen –
-         ;; sonst versucht JEDER Buffer beim Speichern eglot-format-buffer
-         ;; aufzurufen, auch ohne aktives Eglot.
+  :hook (
+         (go-mode . eglot-ensure)
          (go-mode . (lambda ()
-                      (add-hook 'before-save-hook 'eglot-format-buffer nil t))))
+                      (add-hook 'before-save-hook 'eglot-format-buffer nil t)
+                      ))
+         )
   :config
   (autoload 'go-mode "go-mode" nil t)
   ;;:bind
