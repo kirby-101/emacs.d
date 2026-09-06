@@ -88,6 +88,12 @@
   ("\\.jsonc$" . json-mode)
   )
 
+;; YAML
+(use-package yaml-mode
+  :ensure t
+  :mode "\\.ya?ml\\'"
+  )
+
 
 ;;; Module
 (provide 'bsdlab-modes)
