@@ -100,7 +100,8 @@
   :hook (emacs-startup . treemacs)
   :config
   (progn
-    (setq treemacs-display-in-side-window t
+    (setq
+     treemacs-display-in-side-window t
           treemacs-follow-after-init t
           treemacs-expand-after-init t
           treemacs-hide-dot-git-directory t
@@ -130,7 +131,7 @@
     ;; treemacs-indent-guide-mode;; = line
 
     (treemacs-follow-mode t)
-    (treemacs-filewatch-mode t)
+    (treemacs-filewatch-mode nil)
     (treemacs-fringe-indicator-mode 'always)
     (treemacs-git-mode 'deferred)
     ;; (treemacs-hide-gitignored-files-mode nil)) ??
@@ -165,10 +166,20 @@
   :ensure t
   )
 
+;; Projectile
 (use-package projectile
   :ensure t
+  :init (projectile-mode +1)
+
   :config
-  (projectile-mode +1)
+  (setq
+   projectile-enable-caching t
+   projectile-indexing-method 'alien
+   projectile-completion-system 'default
+   projectile-project-search-path '("~/Workspace/"
+                                   "/ssh:dpxlab:/root")
+   )
+
   :bind
   ("C-c p" . projectile-command-map)
   )

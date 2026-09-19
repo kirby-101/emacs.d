@@ -94,6 +94,12 @@
   :mode "\\.ya?ml\\'"
   )
 
+;; nginx.conf
+(use-package nginx-mode
+  :ensure t
+  :mode ("nginx\\.conf\\'"
+         "/nginx/.*\\.conf\\'"
+         "/sites-\\(?:available\\|enabled\\)/"))
 
 ;;; Module
 (provide 'bsdlab-modes)
