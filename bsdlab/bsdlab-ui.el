@@ -7,6 +7,7 @@
  ring-bell-function 'ignore  ; Quiet
  scroll-margin 1             ; Space between cursor and top/bottom
  initial-scratch-message nil ; clean scratch buf
+ inhibit-startup-buffer-menu t
  create-lockfiles nil        ; Disable lockfiles
  echo-keystrokes 0.1         ; Show keystrokes asap
  auto-revert-interval 1      ; Refresh buffers fast

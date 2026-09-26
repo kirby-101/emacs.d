@@ -22,6 +22,7 @@ time and garbage collections."
   :init
   (add-hook 'after-init-hook 'dashboard-refresh-buffer)
   (add-hook 'dashboard-mode-hook 'my/dashboard-banner)
+
   :config
   (setq dashboard-startup-banner 4) ; banner
   (setq dashboard-center-content t) ; center content
