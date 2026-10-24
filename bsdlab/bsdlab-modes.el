@@ -34,16 +34,37 @@
               ("TAB" . company-complete-selection)
               ("<tab>" . company-complete-selection)
               )
-  :config (global-company-mode)
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.1)
   )
 ;;(setq company-minimum-prefix-length 1
 ;; company-idle-delay 0.0)
+
+(use-package flymake
+  :ensure nil
+  :hook (prog-mode . flymake-mode)
+  :custom
+  (flymake-no-changes-timeout 0.5)
+  (flymake-fringe-indicator-position 'right-fringe)
+  (flymake-show-diagnostics-at-end-of-line 'short)
+  )
+
+(use-package yasnippet
+  :ensure t
+  :hook (prog-mode . yas-minor-mode))
+(use-package yasnippet-snippets
+  :ensure t
+  :after yasnippet)
 
 ;; C / C++
 
 ;; Golang
 (use-package go-mode
   :ensure t
+  :init
+  (setenv "PATH" (concat (getenv "PATH") ":" "/usr/local/go/bin"))
+  
   :defer t
   :mode "\\.go\\'"
   :hook (
@@ -54,9 +75,31 @@
          )
   :config
   (autoload 'go-mode "go-mode" nil t)
-  ;;:bind
-  ;; ("C-c C-c" . ) ;; => go build/run .
+  (setq-default eglot-workspace-configuration
+                '(:gopls (:staticcheck t
+                        ;;:gofumpt t
+                        :usePlaceholders t
+                        :completeUnimported t
+                        :deepCompletion t
+                        :hoverKind "FullDocumentation"
+                        :linksInHover t
+                        :annotations (:bounds t :escape t :inline t :nil t)
+                        :analyses (:ST1000 :json-false
+                                   :ST1020 :json-false
+                                   :ST1021 :json-false
+                                   :ST1022 :json-false)
+                        
+                        :hints (:parameterNames t
+                                :assignVariableTypes t
+                                :compositeLiteralFields t
+                                :constantValues t
+                                :rangeVariableTypes t)))
+              )
   )
+
+
+;; Golang: delve
+(use-package dape :ensure t)
 
 ;; Python
 (use-package python
@@ -100,6 +143,14 @@
   :mode ("nginx\\.conf\\'"
          "/nginx/.*\\.conf\\'"
          "/sites-\\(?:available\\|enabled\\)/"))
+
+;; Makefile
+(use-package make-mode
+  :ensure nil
+  :mode (("Makefile\\'" . makefile-bsdmake-mode)
+         ("GNUmakefile\\'" . makefile-gmake-mode)
+         ("\\.mk\\'" . makefile-bsdmake-mode))
+  )
 
 ;;; Module
 (provide 'bsdlab-modes)
