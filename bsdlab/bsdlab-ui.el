@@ -11,6 +11,7 @@
  create-lockfiles nil        ; Disable lockfiles
  echo-keystrokes 0.1         ; Show keystrokes asap
  auto-revert-interval 1      ; Refresh buffers fast
+ auto-revert-use-notify nil  ; costs filedescriptors
  )
 
 ;; save&restore emacs sessions
@@ -68,7 +69,7 @@
 
 (defun bsdlab-vterm-toggle ()
   (interactive)
-  (if-let ((window (get-buffer-window "*vterm*")))
+  (if-let* ((window (get-buffer-window "*vterm*")))
       (progn
         (delete-window window)
         (kill-buffer "*vterm*"))

@@ -21,21 +21,21 @@
 ;; load .emacs.d: normal / symlink
 ;; (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path
-             (expand-file-name "~/Workspace/emacs.d" user-emacs-directory)
+             (expand-file-name "~/Workspace/Projekte/emacs.d" user-emacs-directory)
              )
 
 ;; um die übersicht zu behalten
 (add-to-list 'load-path
-             (expand-file-name "~/Workspace/emacs.d/bsdlab" user-emacs-directory)
+             (expand-file-name "~/Workspace/Projekte/emacs.d/bsdlab" user-emacs-directory)
              )
 
-(require 'bsdlab-keymap)
-(require 'bsdlab-modes)
 (require 'bsdlab-packages)
-(require 'bsdlab-plugins)
+(require 'bsdlab-keymap)
 (require 'bsdlab-settings)
 (require 'bsdlab-theme)
 (require 'bsdlab-ui)
+(require 'bsdlab-plugins)
+(require 'bsdlab-modes)
 
 
 ;; export to custom.el
